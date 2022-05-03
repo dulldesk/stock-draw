@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Generate Placeholder Images</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Feather Icons maintains an MIT License. https://github.com/feathericons/feather/blob/master/LICENSE -->
+</head>
+<body>
+	<h1>Placeholder Image Generator</h1>
+	<section>
+		<div class="inputs">
+			<div>
+				<label for="n"># of Images:</label>
+				<input id="n" type="number" value="4" min="1">
+			</div>
+			<div>
+				<label for="w">width: <span id="w-val"></span>px</label>
+				<input id="w" type="range" min="50" max="700" value="300">
+			</div>
+			<div>
+				<label for="h">height: <span id="h-val"></span>px</label>
+				<input id="h" type="range" min="50" max="700" value="500">
+			</div>
+		</div>
+		<br>
+		<button onclick="generateAll()">Generate</button>
+		<button onclick="downloadAll()">Download all</button>
+	</section>
+	<section id="nodes"></section>
+	<template>
+		<div class="node">
+			<canvas id="c"></canvas>
+			<div class="utilities">
+				<a title="download" download="image"><img src="download.svg"></a>
+				<a title="regenerate" href="#" onclick="draw(this.parentElement.previousElementSibling)"><img src="refresh.svg"></a>
+			</div>
+		</div>
+	</template>
+	<script src="script.js"></script>
+</body>
+</html>
